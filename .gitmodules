@@ -4,3 +4,9 @@
 [submodule "Nix-Strays"]
 	path = Nix-Strays
 	url = https://github.com/removed-user/Nix-Strays.git
+[submodule "lib_flakeModule"]
+	path = lib_flakeModule
+	url = https://github.com/removed-user/lib_flakeModule.git
+[submodule "BackBone"]
+	path = BackBone
+	url = https://github.com/removed-user/BackBone.git
