@@ -10,3 +10,6 @@
 [submodule "BackBone"]
 	path = BackBone
 	url = https://github.com/removed-user/BackBone.git
+[submodule "NixLib-Extensions-Boiler"]
+	path = NixLib-Extensions-Boiler
+	url = https://github.com/removed-user/NixLib-Extensions-Boiler.git
