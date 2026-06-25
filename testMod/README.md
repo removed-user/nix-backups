@@ -1,0 +1,1 @@
+tests for lib_flakeModule, where I tried to figure out the correct place to declare a flakeModule, because docs were outdated; if you want to pick up on any of the concepts, look to devenv, it seems to be the only project using them properly
