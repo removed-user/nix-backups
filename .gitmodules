@@ -13,3 +13,6 @@
 [submodule "NixLib-Extensions-Boiler"]
 	path = NixLib-Extensions-Boiler
 	url = https://github.com/removed-user/NixLib-Extensions-Boiler.git
+[submodule "nix_packages"]
+	path = nix_packages
+	url = https://github.com/removed-user/nix_packages.git
