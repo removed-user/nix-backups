@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs-lib"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781854242,
+        "narHash": "sha256-VVSlDtWSAswHsRIkFP+0wh4LeoiT+k+WVwQMjR7q4rA=",
+        "owner": "removed-user",
+        "repo": "flake-parts",
+        "rev": "d73d2cae0ae89af87083dd901249880244f8d74d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "removed-user",
+        "ref": "Add-a-Check-in-mkTransposedPersystemModule",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1781405675,
+        "narHash": "sha256-0iaTCZDEORJeWamOjfDZaoZZx686f7QO5oL3ynmj+ew=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "de42d44212d207476489bce163375d8306a26d59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs-lib": "nixpkgs-lib"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -1,0 +1,86 @@
+{
+  description = "A collection of flake templates for adding your own lib functions";
+  inputs = {
+    flake-parts = {
+      url = "github:removed-user/flake-parts/Add-a-Check-in-mkTransposedPersystemModule";
+      # url = "path:fp/";
+      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
+    };
+    nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
+  };
+
+  outputs = inputs @ {
+    nixpkgs-lib,
+    flake-parts,
+    ...
+  }:
+  /*
+  # 1. Keep your definitions flat and visible at the very top
+  - Should Produce `Mylib.lib`.
+  - A module argument you can pass around like lib, flake-parts-lib, etc.
+  - Importable by users as seen below through
+  *imports = [${yourFlakeName}.myCustomModule];*
+  */
+  # let
+  # inherit nixpkgs-lib;
+  # lib = nixpkgs-lib.lib;
+  # myCustomModule = {lib, ...}: {
+  #   _class = "generic";
+  #   _module.args.Mylib = {
+  #     lib1 = import ./flakeModule.nix {inherit lib;}; # import a/the default flakeModule, and load lib from it
+  #     #or
+  #     lib2.define_monad = rec {
+  #       whatsAMonad = self: ''A Monad is just a monoid in the category of endofunctors'';
+  #       __functor = self: whatsAMonad;
+  #     };
+  #   };
+  # };
+  # in
+  /*
+  # 2. You "may" want to define a system type if necessary.
+     -  For pure nix-lib outputs, it's not required, and **can cause** issues for consumers.
+      - If you're not exporting custom packages/modules/overlays, then you probably don't actually need it
+  */
+    flake-parts.lib.mkFlake {
+      inherit (nixpkgs-lib) lib;
+      #  systems = [ "x86_64-linux" ];
+
+      /*
+      # Safely Dogfood "use" your module internally; (for testing);
+       >  please don't use overrides in-order to use your lib in your lib
+       -  Without polluting consumers inputs
+       -  adding recursion problems or
+       -  copying your lib to the store more than once
+      */
+
+      disabledModules = [
+        inputs.flake-parts.flakeModules.nixosModules
+        inputs.flake-parts.flakeModules.nixosConfigurations
+        inputs.flake-parts.flakeModules.apps
+        inputs.flake-parts.flakeModules.devShells
+        inputs.flake-parts.flakeModules.formatter
+      ];
+
+      imports = [
+        # myCustomModule
+        inputs.flake-parts.flakeModules.flakeModules
+        inputs.flake-parts.flakeModules.modules
+        inputs.flake-parts.flakeModules.debug
+      ];
+
+      # Export your module for downstream consumers in global spec
+
+      # Use your injected library inside perSystem safely
+
+      #     options.Mylib = {
+      #       type = lib.types.lazyAttrsOf lib.types.submodule;
+    };
+  #  config = {
+  #   debug = true;
+  #   flake.templates = import ./templates/default.nix;
+  # };
+  # };
+  # flake = {
+  # flakeModules.default = myCustomModule;
+  # };
+}
