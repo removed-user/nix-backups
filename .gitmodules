@@ -16,3 +16,6 @@
 [submodule "nix_packages"]
 	path = nix_packages
 	url = https://github.com/removed-user/nix_packages.git
+[submodule "Nix_Extra-Builders"]
+	path = Nix_Extra-Builders
+	url = https://github.com/removed-user/Nix_Extra-Builders.git
