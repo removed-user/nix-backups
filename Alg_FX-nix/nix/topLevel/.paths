@@ -1,0 +1,6 @@
+    ./topLevel/kernel.nix
+    ./topLevel/basic.nix
+    ./topLevel/functor.nix
+    ./topLevel/monad.nix
+    ./topLevel/provide.nix
+    ./topLevel/sequence.nix
