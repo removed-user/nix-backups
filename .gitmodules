@@ -1,3 +1,6 @@
 [submodule "templates"]
 	path = templates
 	url = https://github.com/removed-user/templates.git
+[submodule "Nix-Strays"]
+	path = Nix-Strays
+	url = https://github.com/removed-user/Nix-Strays.git
